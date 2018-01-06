@@ -11,15 +11,7 @@ $(document).ready(function() {
     for(let i = 1; i <= howManyEl; i++){
       $(".squares").append(`<div class="${"img" + i}"></div>`);
     }
-    $(".squares").append("<br>"); //remove this line when creating css
-  }
-
-  function giveClasses() {
-    let i = 1;
-    $(".squares > div").each(function(){
-      $(this).addClass("img" + i);
-      i += 1;
-    })
+    $(".squares").append("<br>");
   }
 
   function createSquare(howManyRows, howManyEl) {
