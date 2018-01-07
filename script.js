@@ -23,19 +23,28 @@ $(document).ready(function() {
   //create the game board
   createSquare(2, 2);
 
+
   // click function which adds an image to each div
+  let clickedImages = [];
   $(".squares > div").click(function() {
-    // create condition to limit appending img tags
+    //give a div an image
     if ($(this).children("img").length == 0) {
       $(this).append(`<img src="${imageUrls[$(this).attr("class")]}" height="100" width="100" alt="${$(this).attr("class")}">`);  
     }
-    // console.log($(this).find("img"));
-    testMatch($(this))
+
+    //copy into a new array, the 'alt' attributes of all clicked images 
+    let currentImages = $(".squares > div").find("[img]");
+    console.log(currentImages[1]);
+
+    testMatch($(this), currentImages)
   })
 
 
-  function testMatch(first){
-    console.log(first.find("img").attr("alt"))
+
+
+  function testMatch(userClick, currentImages){
+    // currentImages.filter(img => img == userClick.find("img").attr("alt"))
+    // console.log(currentImages);
   }
 
 
