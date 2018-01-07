@@ -35,7 +35,7 @@ $(document).ready(function() {
 
 
   function testMatch(first){
-    console.log(first.find("img").attr("src"))
+    console.log(first.find("img").attr("alt"))
   }
 
 
