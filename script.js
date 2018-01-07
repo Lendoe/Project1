@@ -7,16 +7,19 @@ $(document).ready(function() {
     img3: "./assets/img3.png"
   }
 
-  function createRow(howManyCol){
+  function createRow(howManyCol, className){
     for(let i = 1; i <= howManyCol; i++){
-      $(".squares").append(`<div class="${"img" + i}"></div>`);
+      $(".squares").append(`<div id="${"img" + i}" class="square${className}"></div>`);
+      className += 1;
     }
     $(".squares").append("<br>");
   }
 
   function createSquare(howManyRows, howManyCol) {
+    let className = 1;
     for (let i = 0; i < howManyRows; i++) {
-      createRow(howManyCol);
+      createRow(howManyCol, className);
+      className += 2;
     }
   }
 
@@ -26,16 +29,17 @@ $(document).ready(function() {
 
   // click function which adds an image to each div
   let clickedImages = [];
+  let currentImages = $(".squares > div").find("[img]");
+  console.log(currentImages);
+
   $(".squares > div").click(function() {
     //give a div an image
     if ($(this).children("img").length == 0) {
-      $(this).append(`<img src="${imageUrls[$(this).attr("class")]}" height="100" width="100" alt="${$(this).attr("class")}">`);  
+      $(this).append(`<img src="${imageUrls[$(this).attr("id")]}" height="100" width="100" alt="${$(this).attr("id")}">`);  
+      // clickedImages.append(currentImages)
     }
 
-    //copy into a new array, the 'alt' attributes of all clicked images 
-    let currentImages = $(".squares > div").find("[img]");
-    console.log(currentImages[1]);
-
+    //grab the 'alt' attributes of all clicked images 
     testMatch($(this), currentImages)
   })
 
