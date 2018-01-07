@@ -23,19 +23,21 @@ $(document).ready(function() {
   //create the game board
   createSquare(2, 2);
 
-  console.log($(".squares > div").find("img"));
   // click function which adds an image to each div
   $(".squares > div").click(function() {
     // create condition to limit appending img tags
     if ($(this).children("img").length == 0) {
-      $(this).append(`<img src="${imageUrls[$(this).attr("class")]}" height="100" width="100">`);  
+      $(this).append(`<img src="${imageUrls[$(this).attr("class")]}" height="100" width="100" alt="${$(this).attr("class")}">`);  
     }
+    // console.log($(this).find("img"));
+    testMatch($(this))
   })
 
 
-  // function hideDivs(){
-  //   if()
-  // }
+  function testMatch(first){
+    console.log(first.find("img").attr("src"))
+  }
+
 
 //create function to delete image divs if two are clicked and match, otherwise flip them back facedown
   //flipping card is just a matter of adding/removing the image tags within each div
