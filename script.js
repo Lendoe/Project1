@@ -12,7 +12,7 @@ $(document).ready(function() {
       $(".squares").append(`<div class="${"img" + i}" id="square${idNum}"></div>`);
       idNum += 1;
     }
-    $(".squares").append("<br>");
+    $(".squares").append("<br>"); //maybe remove?
   }
 
   function createSquare(howManyRows, howManyCol) {
@@ -24,7 +24,7 @@ $(document).ready(function() {
   }
 
   //create the game board
-  createSquare( 2, 2 );
+  createSquare(2, 1); //make sure board is a 2 by X since this is a match 2 game, not match 2+
 
 
   // click function which adds an image to each div
@@ -43,9 +43,20 @@ $(document).ready(function() {
 
 
   function testMatch(userClick){
-    clickedImages.push(userClick.attr("class"));
-    console.log(clickedImages);
-    console.log(userClick.attr("class"));
+    clickedImages.push(userClick.attr("class")); //array of user clicked divs, in order they were clicked
+    let deleteIfTwoExist = 0;
+    for (let i = 0; i < clickedImages.length - 1; i++) {
+      if (userClick.attr("class") == clickedImages[i]) {
+        deleteIfTwoExist++;
+        if (deleteIfTwoExist == 1) {
+          //delete from the clicked element from divs
+          $(".squares").find(`.${clickedImages[i]}`).remove() //deletes the matched divs
+        }
+      }
+    }
+    if ($(".squares").children("div").length == 0) {
+      $(".win").append("<div>YOU WIN!</div>");
+    }
   }
 
 
