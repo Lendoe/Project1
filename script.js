@@ -7,48 +7,45 @@ $(document).ready(function() {
     img3: "./assets/img3.png"
   }
 
-  function createRow(howManyCol, className){
+  function createRow(howManyCol, idNum){
     for(let i = 1; i <= howManyCol; i++){
-      $(".squares").append(`<div id="${"img" + i}" class="square${className}"></div>`);
-      className += 1;
+      $(".squares").append(`<div class="${"img" + i}" id="square${idNum}"></div>`);
+      idNum += 1;
     }
     $(".squares").append("<br>");
   }
 
   function createSquare(howManyRows, howManyCol) {
-    let className = 1;
+    let idNum = 1;
     for (let i = 0; i < howManyRows; i++) {
-      createRow(howManyCol, className);
-      className += 2;
+      createRow(howManyCol, idNum);
+      idNum += howManyCol;
     }
   }
 
   //create the game board
-  createSquare(2, 2);
+  createSquare( 2, 2 );
 
 
   // click function which adds an image to each div
   let clickedImages = [];
-  let currentImages = $(".squares > div").find("[img]");
-  console.log(currentImages);
 
   $(".squares > div").click(function() {
-    //give a div an image
+    //give a div an image. 
     if ($(this).children("img").length == 0) {
-      $(this).append(`<img src="${imageUrls[$(this).attr("id")]}" height="100" width="100" alt="${$(this).attr("id")}">`);  
-      // clickedImages.append(currentImages)
+    // ^give me an arr of imgs of the clicked div. If it's an empty arr, give it an image.
+      $(this).append(`<img src="${imageUrls[$(this).attr("class")]}" height="100" width="100" alt="${$(this).attr("class")}">`);  
+      testMatch($(this));
     }
-
-    //grab the 'alt' attributes of all clicked images 
-    testMatch($(this), currentImages)
   })
 
 
 
 
-  function testMatch(userClick, currentImages){
-    // currentImages.filter(img => img == userClick.find("img").attr("alt"))
-    // console.log(currentImages);
+  function testMatch(userClick){
+    clickedImages.push(userClick.attr("class"));
+    console.log(clickedImages);
+    console.log(userClick.attr("class"));
   }
 
 
