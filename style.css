@@ -12,3 +12,12 @@ body {
   width: 100px;
   border: 1px black solid;
 }
+
+.game {
+  width: 50%;
+}
+
+.result {
+  position: absolute;
+  z-index: -20;
+}

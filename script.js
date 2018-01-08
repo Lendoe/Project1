@@ -11,9 +11,7 @@ $(document).ready(function() {
     img7: "./assets/img7.png",
     img8: "./assets/img8.png",
     img9: "./assets/img9.png",
-    img10: "./assets/img10.png",
-    img11: "./assets/img11.png"
-
+    img10: "./assets/img10.png"
   }
 
   function createRow(howManyCol, idNum){
@@ -44,6 +42,11 @@ $(document).ready(function() {
     if ($(this).children("img").length == 0) {
     // ^give me an arr of imgs of the clicked div. If it's an empty arr, give it an image.
       $(this).append(`<img src="${imageUrls[$(this).attr("class")]}" height="100" width="100" alt="${$(this).attr("class")}">`);  
+      
+      // setTimeout(function(){  //hide cards after 1 second(s):
+      //   console.log($(this).remove("img"));
+      // }, 300);
+
       testMatch($(this));
     }
   })
@@ -61,11 +64,14 @@ $(document).ready(function() {
           //delete from the clicked element from divs
           setTimeout(function(){ 
             $(".squares").find(`.${clickedImages[i]}`).remove() //deletes the matched divs
-          }, 500);
-          
+          }, 200);
         }
       }
     }
+
+   
+
+
     if ($(".squares").children("div").length == 0) {
       $(".win").append("<div>YOU WIN!</div>");
     }
