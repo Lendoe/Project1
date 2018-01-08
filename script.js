@@ -4,7 +4,16 @@ $(document).ready(function() {
   let imageUrls = {
     img1: "./assets/img1.png",
     img2: "./assets/img2.png",
-    img3: "./assets/img3.png"
+    img3: "./assets/img3.png",
+    img4: "./assets/img4.png",
+    img5: "./assets/img5.png",
+    img6: "./assets/img6.png",
+    img7: "./assets/img7.png",
+    img8: "./assets/img8.png",
+    img9: "./assets/img9.png",
+    img10: "./assets/img10.png",
+    img11: "./assets/img11.png"
+
   }
 
   function createRow(howManyCol, idNum){
@@ -24,7 +33,7 @@ $(document).ready(function() {
   }
 
   //create the game board
-  createSquare(2, 1); //make sure board is a 2 by X since this is a match 2 game, not match 2+
+  createSquare(2, 10); //make sure board is a 2 by X since this is a match 2 game, not match 2+
 
 
   // click function which adds an image to each div
@@ -50,7 +59,10 @@ $(document).ready(function() {
         deleteIfTwoExist++;
         if (deleteIfTwoExist == 1) {
           //delete from the clicked element from divs
-          $(".squares").find(`.${clickedImages[i]}`).remove() //deletes the matched divs
+          setTimeout(function(){ 
+            $(".squares").find(`.${clickedImages[i]}`).remove() //deletes the matched divs
+          }, 500);
+          
         }
       }
     }
