@@ -1,14 +1,15 @@
 body {
 }
 
-.squares{
+.wrong {
+  background-color: blue;
 }
 
-.squares > div{
+.squares > div {
   display: inline-flex;
   justify-content: center;
   background-color: red;
-  height:100px;
+  height: 100px;
   width: 100px;
   border: 1px black solid;
 }
@@ -20,4 +21,8 @@ body {
 .result {
   position: absolute;
   z-index: -20;
+}
+
+.welcomePage {
+  background-color: yellow;
 }
