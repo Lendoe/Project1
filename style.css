@@ -1,28 +1,117 @@
-body {
+.squares {
+  width: 1080px;
+  margin: 0 auto;
+  background-color: gray;
 }
 
-.wrong {
-  background-color: blue;
-}
-
-.squares > div {
+/*.squares > div {
   display: inline-flex;
   justify-content: center;
   background-color: red;
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   border: 1px black solid;
+}*/
+
+@import url("https://fonts.googleapis.com/css?family=Merriweather");
+
+.container {
+  text-align: center;
+  margin-top: 300px;
+  background-color: #1a2b3882;
 }
 
-.game {
-  width: 50%;
+#title {
+  font-family: "Merriweather", serif;
+  font-size: 60px;
+}
+#btn {
+  font-size: 40px;
+  background-color: #1a2b3882;
+  font-family: "Merriweather", serif;
+  border: 2px 2px black;
+  cursor: pointer;
+}
+#btn:hover {
+  background-color: red;
+}
+/*/////////////////////////////////////////////*/
+.card {
+  float: left;
+  margin: 10px;
+  height: 200px;
+  width: 180px;
 }
 
-.result {
-  position: absolute;
-  z-index: -20;
+.hidden {
+  height: 200px;
+  width: 180px;
+  background-color: red;
 }
 
-.welcomePage {
-  background-color: yellow;
+.card1 {
+  background-image: url("./assets/img1.png");
+  background-size: cover;
+  height: 200px;
+  width: 180px;
+}
+
+.card2 {
+  background-image: url("./assets/img2.png");
+  background-size: cover;
+}
+
+.card3 {
+  background-image: url("./assets/img3.png");
+  background-size: cover;
+}
+
+.card4 {
+  background-image: url("./assets/img4.png");
+  background-size: cover;
+}
+
+.card5 {
+  background-image: url("./assets/img5.png");
+  background-size: cover;
+}
+
+.card6 {
+  background-image: url("./assets/img6.png");
+  background-size: cover;
+}
+
+.card7 {
+  background-image: url("./assets/img8.png");
+  background-size: cover;
+}
+
+.card8 {
+  background-image: url("./assets/img9.png");
+  background-size: cover;
+}
+
+.card9 {
+  background-image: url("./assets/img10.png");
+  background-size: cover;
+}
+
+.card10 {
+  background-image: url("./assets/img1.png");
+  background-size: cover;
+}
+
+.card11 {
+  background-image: url("./assets/img1.png");
+  background-size: cover;
+}
+
+.card12 {
+  background-image: url("./assets/img1.png");
+  background-size: cover;
+}
+
+.card13 {
+  background-image: url("./assets/img1.png");
+  background-size: cover;
 }
